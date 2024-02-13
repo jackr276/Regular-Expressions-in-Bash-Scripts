@@ -4,7 +4,7 @@
 #!bin/bash
 
 #Use grep for regular expression matching to get all of the dates
-dates=( $(grep -o '[0-9][0-9][\./-][0-9][0-9][\./-][0-9][0-9][0-9][0-9]' "$1") )
+dates=($(grep -o '[0-9][0-9][\./-][0-9][0-9][\./-][0-9][0-9][0-9][0-9]' "$1"))
 size=${#dates[@]}
 
 declare -A unixTime
