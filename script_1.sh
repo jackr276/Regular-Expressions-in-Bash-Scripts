@@ -9,7 +9,7 @@ declare -a dates=()
 #Read file(command line argument) in line by line
 #Use grep for regex matching to get all of the dates and save to an array
 while read -r line; do
-   dates+=($(echo "$line" | grep -E -o '[0-9]{2}[\./-][0-9]{2}[\./-][0-9]{4}'))
+   dates+=($(echo "$line" | grep -E -o '[0-1][0-9][\./-][0-3][0-9][\./-][0-2][0-9]{3}'))
 done < "$1"
 
 #get size of dates
@@ -24,13 +24,13 @@ for((i = 0; i < $size; i++)); do
     #grab the date out of the array for convenience
     date=${dates[i]}
     #grab year
-    [[ $date =~ ([0-9]{4}) ]]
+    [[ $date =~ ([0-2][0-9]{3}) ]]
     year=${BASH_REMATCH[1]}
     #grab month
-    [[ $date =~ ([0-9]{2}) ]]
+    [[ $date =~ ([0-1][0-9]) ]]
     month=${BASH_REMATCH[1]}
     #grab day
-    [[ $date =~ ([\./-][0-9]{2}) ]]
+    [[ $date =~ ([\./-][0-3][0-9]) ]]
     day=$(echo ${BASH_REMATCH[1]} | cut -c 2-3)
     #calculate the time since 1970 using date
     timeSeconds=$(date +%s --date "${year}-${month}-${day}")
