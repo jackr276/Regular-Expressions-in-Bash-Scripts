@@ -44,13 +44,13 @@ for((i = 1; i < $size; i++)); do
 
     #while j more than key, perform swap
     while [[ $j -ge 0 ]] && [[ ${timeOnly[j]} -gt $key ]]; do
-            #bring array[j] forward
-            timeOnly[$(($j+1))]=${timeOnly[j]}
-            #decrement j with arithmetic expansion
-            ((j--))
-        done
-        #put key in the next spot
-        timeOnly[$(($j+1))]=$key
+        #bring array[j] forward
+        timeOnly[$(($j+1))]=${timeOnly[j]}
+        #decrement j with arithmetic expansion
+        ((j--))
+    done
+    #put key in the next spot
+    timeOnly[$(($j+1))]=$key
 done
 
 #Finally, print out everything in order
