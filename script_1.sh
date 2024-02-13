@@ -9,7 +9,7 @@ declare -a dates=()
 #Read file(command line argument) in line by line
 #Use grep for regex matching to get all of the dates and save to an array
 while read -r line; do
-   dates+=($(echo "$line" | grep -o '[0-9][0-9][\./-][0-9][0-9][\./-][0-9][0-9][0-9][0-9]'))
+   dates+=($(echo "$line" | grep -E -o '[0-9]{2}[\./-][0-9]{2}[\./-][0-9]{4}'))
 done < "$1"
 
 #get size of dates
