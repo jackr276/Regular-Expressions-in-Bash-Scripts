@@ -3,10 +3,19 @@
 
 #!bin/bash
 
-#Use grep for regular expression matching to get all of the dates
-dates=($(grep -o '[0-9][0-9][\./-][0-9][0-9][\./-][0-9][0-9][0-9][0-9]' "$1"))
+#create an array for the dates
+declare -a dates=()
+
+#Read file(command line argument) in line by line
+#Use grep for regex matching to get all of the dates and save to an array
+while read -r line; do
+   dates+=($(echo "$line" | grep -o '[0-9][0-9][\./-][0-9][0-9][\./-][0-9][0-9][0-9][0-9]'))
+done < "$1"
+
+#get size of dates
 size=${#dates[@]}
 
+#declare array and associative array for sorting and storing
 declare -A unixTime
 declare -a timeOnly=()
 
