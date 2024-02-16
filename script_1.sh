@@ -46,7 +46,7 @@ size=${#timeOnly[@]}
 #insertion sort algorithm
 for((i = 1; i < $size; i++)); do
     #get each array element as a key
-    key=(${timeOnly[i]})
+    key=${timeOnly[i]}
 
     #Declare j
     j=$(($i-1))
