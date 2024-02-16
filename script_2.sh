@@ -47,12 +47,16 @@ for((i = 1; i < $size; i++)); do
     #while j more than key, perform swap
     while [[ $j -ge 0 ]] && [[ ${ages[j]} -lt $key ]]; do
         #bring array[j] forward
-        timeOnly[$(($j+1))]=${ages[j]}
+        ages[$(($j+1))]=${ages[j]}
         #decrement j with arithmetic expansion
         ((j--))
     done
     #put key in the next spot
-    timeOnly[$(($j+1))]=$key
+    ages[$(($j+1))]=$key
 done
 
-echo "${ages[@]}"
+#now that ages are sorted, we can safely print and convert back to years
+for age in "${ages[@]}"; do
+    #Note: 1 year = 31557600 seconds
+    echo "${peopleAge[$age]}" is $((${age}/31557600))
+done
