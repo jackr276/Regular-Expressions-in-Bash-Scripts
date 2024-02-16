@@ -3,14 +3,13 @@
 
 #!bin/bash
 
-#Declare an array for holding all dates(may be used)
-
 #Declare an associative array for holding people and their ages(in seconds)
 declare -A peopleAge
 #Declare a regular array for holding ages(in seconds)
 declare -a ages=()
 
 #Get the current time in seconds for calculating age
+#Ensures all ages are accurate upon time of execution
 timeSeconds=$(date +%s)
 
 #Read the file in line by line, checking for people who have a two word city
