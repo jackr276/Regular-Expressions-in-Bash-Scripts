@@ -1,5 +1,4 @@
 # Jack Robbins
-# Homework 2, problem 2
 
 #!bin/bash
 
