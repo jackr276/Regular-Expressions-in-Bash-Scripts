@@ -1,6 +1,6 @@
 # Jack Robbins
 
-#!bin/bash
+#!/bin/bash
 
 #Declare an associative array for holding people and their ages(in seconds)
 declare -A peopleAge

@@ -1,6 +1,6 @@
 #Jack Robbins
 
-#!bin/bash
+#!/bin/bash
 
 #create an array for the dates
 declare -a dates=()
